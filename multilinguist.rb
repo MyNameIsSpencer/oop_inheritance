@@ -1,5 +1,12 @@
+puts "|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|"
+
+
+
 require 'httparty'
 require 'json'
+# require_relative 'mathgenius'
+# require_relative 'quote_collector'
+
 
 
 # This class represents a world traveller who knows what languages are spoken in each country
@@ -52,3 +59,35 @@ class Multilinguist
     json_response['translationText']
   end
 end
+
+
+
+require_relative 'multilinguist'
+
+
+
+
+
+class MathGenius < Multilinguist
+
+  # def initialize
+  #
+  # end
+
+  def report_total(array_x)
+    summed = array_x.sum
+    message = "The total of all the numbers you said is #{summed}"
+    Multilinguist.say_in_local_language(message)
+    puts message
+  end
+
+end
+
+
+
+me = MathGenius.new
+puts me.report_total([23,45,676,34,5778,4,23,5465]) # The total is 12048
+me.travel_to("India")
+puts me.report_total([6,3,6,68,455,4,467,57,4,534]) # है को कुल 1604
+me.travel_to("Italy")
+puts me.report_total([324,245,6,343647,686545]) # È Il totale 1030767
