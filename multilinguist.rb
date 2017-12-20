@@ -22,6 +22,10 @@ class Multilinguist
     @current_lang = 'en'
   end
 
+  def current_lang
+    @current_lang
+  end
+
   # Uses the RestCountries API to look up one of the languages
   # spoken in a given country
   #
